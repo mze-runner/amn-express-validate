@@ -2,13 +2,19 @@ import { Request, Response, NextFunction } from 'express';
 import { ObjectSchema } from '@hapi/joi';
 import { error } from 'amn-error';
 
-export const validate = (
+// get all input from client
+const _input = (req: Request) => {
+    const { body, params, query } = req;
+    return Object.assign({}, body, params, query);
+};
+
+export default (
     schema: ObjectSchema,
-    container: 'body' | 'query' | 'params'
+    container?: 'body' | 'query' | 'params'
 ) => {
     return async (req: Request, res: Response, next: NextFunction) => {
         try {
-            const input = req[container];
+            const input = !container ? _input(req) : req[container];
             const { error: validationError } = await schema.validate(input);
             const valid = validationError == null;
             if (valid) {
