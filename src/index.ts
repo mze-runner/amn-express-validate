@@ -22,7 +22,7 @@ export default (
             }
             const { details } = validationError!;
             const message = details.map((i) => i.message).join(',');
-            throw error(400, 'BAD_REQUEST', 'bad request from client', message);
+            throw error(400, 'BAD_REQUEST', message);
         } catch (err) {
             next(err);
         }
