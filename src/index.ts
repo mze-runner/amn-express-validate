@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import { ObjectSchema } from '@hapi/joi';
-import { error } from 'amn-error';
+import error from 'amn-error';
 
 // get all input from client
 const _input = (req: Request) => {
@@ -22,7 +22,7 @@ export default (
             }
             const { details } = validationError!;
             const message = details.map((i) => i.message).join(',');
-            throw error(400, 'BAD_REQUEST', message);
+            throw error.create(400, 'BAD_REQUEST', message);
         } catch (err) {
             next(err);
         }

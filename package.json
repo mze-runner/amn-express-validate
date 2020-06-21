@@ -33,14 +33,14 @@
     "devDependencies": {
         "@types/express": "^4.17.6",
         "@types/hapi__joi": "^17.1.2",
+        "amn-error": "0.0.7",
         "del-cli": "^3.0.1",
         "typescript": "^3.9.5"
     },
     "peerDependencies": {
         "express": ">= 4.17.0",
-        "@hapi/joi": ">= 17.x"
+        "@hapi/joi": ">= 17.x",
+        "amn-error": ">= 0.0.7"
     },
-    "dependencies": {
-        "amn-error": "0.0.3"
-    }
+    "dependencies": {}
 }
