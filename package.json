@@ -1,6 +1,6 @@
 {
     "name": "amn-express-validate",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "description": "An express middleware build around 'hapi/joi' validation package to simplify client's input validation.",
     "main": "./build/index.js",
     "types": "./build/index.d.ts",
